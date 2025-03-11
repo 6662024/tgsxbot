@@ -134,11 +134,11 @@ async function onMessage(message) {
     if (message.chat.id.toString() === ADMIN_UID) {
         if (!message?.reply_to_message?.chat) {
             return sendMessage({
-              chat_id: ADMIN_UID,
-              text: '使用方法：回复要转发的消息，并发送指令，如 `/ban`、`/qban`、`/cxban`',
-              parse_mode: 'MarkdownV2' // 使用 Markdown V2 格式
-              });
-
+                chat_id: ADMIN_UID,
+                text: '使用方法：回复要转发的消息，并发送指令，如 `/ban` 回复消息,就把谁屏蔽  `/qban`回复消息,就取消屏蔽谁  `/cxban`回复消息,查询是否屏蔽',
+                parse_mode: 'MarkdownV2' // 使用 Markdown V2 格式
+            });
+            
         }
         if (/^\/ban$/.exec(message.text)) {
             return handleBlock(message);
